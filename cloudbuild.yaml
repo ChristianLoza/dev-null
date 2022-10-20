@@ -2,3 +2,9 @@ steps:
   - name: maven:3.8.5-openjdk-17
     entrypoint: 'mvn'
     args: [ 'clean', 'install', '-DskipTests' ]
+  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+          args:
+            - '-Dsonar.projectKey=dev-null'
+            - '-Dsonar.host.url=http://35.238.99.152:9000'
+            - '-Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8'
+tags: [ 'cloud-builders-community' ]
