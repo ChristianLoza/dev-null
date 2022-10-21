@@ -17,7 +17,7 @@ steps:
 
   - id: Docker Build
     name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','gcr.io/proyecto-miso/examplenulldocker/myimage:1.0', '.' ]
+    args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','gcr.io/$PROJECT_ID/examplenulldocker/myimage:1.0', '.' ]
   - id: Docker push
     name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push','gcr.io/proyecto-miso/examplenulldocker/myimage:1.0']
+    args: [ 'push','gcr.io/$PROJECT_ID/examplenulldocker/myimage:1.0']
