@@ -4,7 +4,6 @@ steps:
 #    args: [ 'clean', 'install', '-DskipTests' ]
 
   - id: Sonar Analysis
-    #name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
     name: 'gcr.io/cloud-builders/mvn'
     entrypoint: bash
     args:
@@ -13,4 +12,8 @@ steps:
         mvn clean verify sonar:sonar \
           -Dsonar.projectKey=dev-null \
           -Dsonar.host.url=http://35.238.99.152:9000 \
-          -Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8
+          -Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8 \
+          -Dsonar.qualitygate.wait=true
+  - id: Docker Build
+    name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t','uus-central1-docker.pkg.dev/proyecto-miso/examplenulldocker/myimage:${SHORT_SHA}', '.' ]
