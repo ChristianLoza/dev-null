@@ -3,17 +3,17 @@ steps:
 #    entrypoint: 'mvn'
 #    args: [ 'clean', 'install', '-DskipTests' ]
 
-#  - id: Sonar Analysis
-#    name: 'gcr.io/cloud-builders/mvn'
-#    entrypoint: bash
-#    args:
-#      - '-c'
-#      - |
-#        mvn clean verify sonar:sonar \
-#          -Dsonar.projectKey=dev-null \
-#          -Dsonar.host.url=http://35.238.99.152:9000 \
-#          -Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8 \
-#          -Dsonar.qualitygate.wait=true
+  - id: Sonar Analysis
+    name: 'gcr.io/cloud-builders/mvn'
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        mvn clean verify sonar:sonar \
+          -Dsonar.projectKey=dev-null \
+          -Dsonar.host.url=http://35.238.99.152:9000 \
+          -Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8 \
+          -Dsonar.qualitygate.wait=true
 
   - id: Docker Build
     name: 'gcr.io/cloud-builders/docker'
