@@ -10,8 +10,7 @@ steps:
     args:
       - '-c'
       - |
-        sonar-scanner \
+        mvn clean verify sonar:sonar \
           -Dsonar.projectKey=dev-null \
-          -Dsonar.projectName=<SONAR-PROJECT-NAME> \
           -Dsonar.host.url=http://35.238.99.152:9000 \
           -Dsonar.login=a34f651cda01f4658292b8b01d59f5d07e3d74d8
