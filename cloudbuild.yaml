@@ -17,7 +17,7 @@ steps:
 
   - id: Docker Build
     name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:1.0', '.' ]
+    args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','us-central1-docker.pkg.dev/${PROJECT_ID}/examplenulldocker/$REPO_NAME:$BUILD_ID', '.' ]
   - id: Docker push
     name: 'gcr.io/cloud-builders/docker'
     args: [ 'push','us-central1-docker.pkg.dev/proyecto-miso/examplenulldocker/myimage:1.0']
