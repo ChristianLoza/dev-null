@@ -16,4 +16,4 @@ steps:
           -Dsonar.qualitygate.wait=true
   - id: Docker Build
     name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t','uus-central1-docker.pkg.dev/proyecto-miso/examplenulldocker/myimage:${SHORT_SHA}', '.' ]
+    args: [ 'build', '-t','us-central1-docker.pkg.dev/proyecto-miso/examplenulldocker/myimage:${SHORT_SHA}', '.' ]
