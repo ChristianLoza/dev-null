@@ -23,6 +23,8 @@ steps:
       - 'PROJECT_NUMBER=$PROJECT_NUMBER'
       - 'REV=$REVISION_ID'
     args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','gcr.io/${_IMAGE_NAME}:1.0', '.' ]
+    substitutions:
+      _IMAGE_NAME: devnull
 
   - id: Docker push
     name: 'gcr.io/cloud-builders/docker'
@@ -32,3 +34,5 @@ steps:
       - 'PROJECT_NUMBER=$PROJECT_NUMBER'
       - 'REV=$REVISION_ID'
     args: [ 'push','gcr.io/${_IMAGE_NAME}:1.0']
+    substitutions:
+      _IMAGE_NAME: devnull
