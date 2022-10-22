@@ -17,21 +17,11 @@ steps:
 
   - id: Docker Build
     name: 'gcr.io/cloud-builders/docker'
-    env:
-      - 'BUILD=$BUILD_ID'
-      - 'PROJECT_ID=$PROJECT_ID'
-      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
-      - 'REV=$REVISION_ID'
     args: [ 'build', '-f','src/main/docker/Dockerfile.jvm','-t','gcr.io/$PROJECT_ID/${_IMAGE_NAME}:${SHORT_SHA}, '.' ]
 
 
   - id: Docker push
     name: 'gcr.io/cloud-builders/docker'
-    env:
-      - 'BUILD=$BUILD_ID'
-      - 'PROJECT_ID=$PROJECT_ID'
-      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
-      - 'REV=$REVISION_ID'
     args: [ 'push','gcr.io/$PROJECT_ID/${_IMAGE_NAME}:${SHORT_SHA}']
 #  - id: Deploy Cloud Run
 #    name: 'gcr.io/cloud-builders/gcloud'
